@@ -4,7 +4,9 @@ services:
   puppet:
     container_name: puppet
     hostname: puppet
-    image: puppet/puppetserver
+    image: arakmar/puppetserver
+    environment:
+      - 'PUPPETSERVER_JAVA_ARGS=-Xms2g -Xmx2g'
     ports:
       - 8140
     volumes:
@@ -33,7 +35,7 @@ services:
 
   puppetdb:
     hostname: puppetdb
-    image: puppet/puppetdb
+    image: arakmar/puppetdb
     ports:
       - 8080
       - 8081
