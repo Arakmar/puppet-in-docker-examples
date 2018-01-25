@@ -24,7 +24,7 @@ services:
 
   puppetdbpostgres:
     container_name: postgres
-    image: puppet/puppetdb-postgres
+    image: arakmar/puppetdb-postgres
     environment:
       - POSTGRES_PASSWORD=puppetdb
       - POSTGRES_USER=puppetdb
@@ -42,13 +42,13 @@ services:
     volumes:
       - ./puppetdb/ssl:/etc/puppetlabs/puppet/ssl/
 
-  puppetboard:
-    image: puppet/puppetboard
-    ports:
-      - 8000
+ puppetboard:
+   image: arakmar/puppetboard
+   ports:
+     - 8000
 
-  puppetexplorer:
-    image: puppet/puppetexplorer
-    ports:
-      - 80
-    read_only: true
+ puppetexplorer:
+   image: puppet/puppetexplorer
+   ports:
+     - 80
+   read_only: true
